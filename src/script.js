@@ -89,7 +89,7 @@ function showTempCity(response) {
   let newCity = document.querySelector("#currentCityDisplay");
   newCity.innerHTML = `${city}`;
   let tMain = document.querySelector("#currentTemp");
-  tMain.innerHTML = `${temp}`;
+  tMain.innerHTML = `${temp}º`;
   let highT = document.querySelector("#high");
   highT.innerHTML = `${high}º`;
   let lowT = document.querySelector("#low");
