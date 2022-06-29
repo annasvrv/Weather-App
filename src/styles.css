@@ -1,9 +1,10 @@
 .container {
   display: block;
-  margin: 10% auto;
+  margin: 5% auto;
 }
 
 .appDisplay {
+  margin: 0 auto;
   border: 1.5px solid rgba(182, 188, 195, 0.4);
   border-radius: 8px;
   box-shadow: 0px 15px 45px 10px rgba(0, 0, 0, 0.2);
@@ -244,4 +245,16 @@ li button {
 li button:hover {
   background-color: rgba(228, 228, 216, 0.9);
   border: 0.8px solid rgba(182, 188, 195, 0.4);
+}
+
+.gitLink {
+  margin: 0 12%;
+  text-align: end;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 0.9;
+}
+
+.open-source-link {
+  text-decoration: none;
 }
