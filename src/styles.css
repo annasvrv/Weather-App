@@ -1,0 +1,247 @@
+.container {
+  display: block;
+  margin: 10% auto;
+}
+
+.appDisplay {
+  border: 1.5px solid rgba(182, 188, 195, 0.4);
+  border-radius: 8px;
+  box-shadow: 0px 15px 45px 10px rgba(0, 0, 0, 0.2);
+  background: rgba(245, 245, 236, 0.5);
+  /* background: rgb(244, 244, 235); */
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 0.9;
+}
+
+.background_left {
+  background-image: url("/Plus/Week_2/Homework/img/bkgrnd2.jpeg");
+  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0px 5px 10px 2px rgba(183, 182, 182, 0.2);
+}
+
+.navbg,
+.currentLocation {
+  background-color: rgba(225, 222, 222, 0.2);
+  border: none;
+  border-radius: 10px;
+}
+
+nav.search {
+  display: inline;
+}
+
+.navSearch {
+  text-align: center;
+}
+
+input::placeholder {
+  color: rgb(223, 219, 219);
+  opacity: 0.7;
+}
+
+.navbg {
+  margin: 0px auto;
+  padding: 5px 15px 5px 15px;
+}
+
+.currentLocation {
+  padding: 5px 10px;
+  color: #fff;
+  opacity: 0.7;
+}
+section {
+  text-align: center;
+  opacity: 0.8;
+}
+
+.logo {
+  margin-top: 50px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.city h1 {
+  margin-top: 40px;
+  font-weight: 700;
+  font-size: 50px;
+}
+
+div .date {
+  margin-top: 120px;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.display_right {
+  opacity: 0.9;
+}
+
+.today {
+  display: inline-block;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  line-height: 80%;
+}
+.menuBtn {
+  float: right;
+  display: inline-block;
+  position: relative;
+  margin-left: 360px;
+}
+
+.menuBar {
+  padding: 5px 10px;
+  opacity: 0.7;
+  border: none;
+  border-radius: 10px;
+  position: relative;
+  bottom: 10px;
+}
+
+.verticalLine {
+  border-right: 0.9px solid rgba(182, 188, 195, 0.4);
+}
+
+.weatherDisplay {
+  margin-top: 10px;
+  background: transparent;
+  border: 0px solid rgba(182, 188, 195, 0.4);
+  box-shadow: 0px 5px 10px 2px rgba(183, 182, 182, 0.2);
+}
+
+table {
+  margin: 0 auto;
+}
+
+.currentTemp td {
+  font-size: 60px;
+  font-weight: 600;
+}
+.tempNow {
+  padding-right: 20px;
+}
+
+.highLow {
+  margin-top: 15px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.high {
+  padding-right: 10px;
+}
+
+.conditions {
+  font-size: 16px;
+}
+.condValue {
+  padding-left: 10px;
+}
+
+h2 {
+  margin-top: 15px;
+  padding: 5px 0;
+  line-height: normal;
+  font-size: 32px;
+}
+
+.weekForecast {
+  display: block;
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px 2px rgba(183, 182, 182, 0.2);
+}
+
+.week {
+  font-weight: 600;
+  font-size: 24px;
+}
+.weekForecast td {
+  width: 100px;
+}
+.dropDisplay {
+  border: 1.5px solid rgba(182, 188, 195, 0.4);
+  border-radius: 8px;
+  box-shadow: 0px 15px 45px 10px rgba(0, 0, 0, 0.2);
+  /* background: rgba(245, 245, 236, 0.5);  */
+  background: rgb(245, 245, 236);
+  font-family: Arial, Helvetica, sans-serif;
+  /* opacity: 0.9; */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  overflow: auto;
+  z-index: 1;
+  right: 0;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.temperatureBtn {
+  box-shadow: 0px 1px 1px 1px rgba(183, 182, 182, 0.5);
+}
+
+.temperatureBtn button {
+  padding: 3px 25px;
+  border: 0.8px solid rgba(182, 188, 195, 0.4);
+  background-color: rgba(228, 228, 216, 0.9);
+  border-radius: 10px;
+  opacity: 0.7;
+}
+
+.menu-navbg {
+  margin: 20px 0;
+  padding: 5px 55px 5px 15px;
+  background-color: rgba(225, 222, 222, 0.2);
+  border: none;
+  border-radius: 10px;
+}
+
+button.favouriteLocation {
+  margin: 20px 0;
+  padding: 5px 10px;
+  background-color: rgba(225, 222, 222, 0.2);
+  border: none;
+  border-radius: 10px;
+  color: rgba(88, 85, 85, 0.7);
+}
+
+.searchFav input::placeholder {
+  color: rgba(88, 85, 85, 0.7);
+}
+
+ul {
+  display: inline;
+  padding: 0px;
+  list-style: none;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+li.delBtn {
+  text-align: end;
+}
+
+li button {
+  padding: 0 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+  box-shadow: 0px 1px 1px 1px rgba(183, 182, 182, 0.5);
+  transition: all 200ms ease-in;
+}
+
+li button:hover {
+  background-color: rgba(228, 228, 216, 0.9);
+  border: 0.8px solid rgba(182, 188, 195, 0.4);
+}
