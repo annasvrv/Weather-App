@@ -14,7 +14,7 @@
 }
 
 .background_left {
-  background-image: url("/Plus/Week_2/Homework/img/bkgrnd2.jpeg");
+  background-image: url("../img/bkgrnd2.jpeg");
   border-radius: 8px;
   background-repeat: no-repeat;
   background-size: cover;
