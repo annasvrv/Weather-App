@@ -1,2 +1,2 @@
-# JavaScript_Course
+# Project_Weather_App
  
