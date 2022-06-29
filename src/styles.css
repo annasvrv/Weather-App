@@ -227,10 +227,6 @@ ul {
   opacity: 0.8;
 }
 
-li.delBtn {
-  /* text-align: end; */
-}
-
 li button {
   padding: 0 10px;
   border: none;
