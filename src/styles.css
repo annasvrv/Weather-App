@@ -229,7 +229,7 @@ ul {
 }
 
 li.delBtn {
-  text-align: end;
+  /* text-align: end; */
 }
 
 li button {
