@@ -58,13 +58,17 @@ for (let i = 0; i <= 6; i++) {
 
 // Display current city
 
-function displayCity(event) {
-  event.preventDefault();
-  let city = document.querySelector("#citySearch-input").value;
+function defaultCity(city) {
   let apiKey = "74a1988810687be79d98c8fd17e5884a";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTempCity);
+}
+
+function displayCity(event) {
+  event.preventDefault();
+  let city = document.querySelector("#citySearch-input").value;
+  defaultCity(city);
 }
 
 //  Display City and Weather Conditions
@@ -156,3 +160,7 @@ let currentLocationButton = document.querySelector(
   "#cityCurrent-location-button"
 );
 currentLocationButton.addEventListener("click", myLocation);
+
+// Default city display
+
+defaultCity("Los Angeles");
