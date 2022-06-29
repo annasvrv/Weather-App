@@ -220,7 +220,6 @@ button.favouriteLocation {
 }
 
 ul {
-  /* display: inline; */
   padding: 0px;
   list-style: none;
   font-size: 16px;
@@ -228,7 +227,6 @@ ul {
 }
 
 li button {
-  margin: 0 55%;
   padding: 0 10px;
   border: none;
   border-radius: 10px;
