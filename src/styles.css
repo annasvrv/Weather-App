@@ -120,7 +120,7 @@ table {
   margin: 0 auto;
 }
 
-.currentTemp td {
+.currentTemp {
   text-align: center;
   font-size: 60px;
   font-weight: 600;
@@ -130,7 +130,8 @@ table {
 } */
 
 .highLow {
-  margin-top: 15px;
+  margin-top: 5px;
+  text-align: center;
   font-size: 16px;
   letter-spacing: 2px;
 }
