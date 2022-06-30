@@ -253,11 +253,11 @@ li button:hover {
   text-decoration: none;
 }
 
-@media screen and (max-width: 765px) {
+/* @media screen and (max-width: 765px) {
   .verticalLine {
     border-right: none;
   }
   .highLow {
     font-weight: 600;
   }
-}
+} */
