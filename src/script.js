@@ -80,7 +80,7 @@ function showTempCity(response) {
   // let iconID = response.data.weather[0].icon;
   let high = Math.round(response.data.main.temp_max);
   let low = Math.round(response.data.main.temp_min);
-  let condition = response.data.weather[0].main;
+  let condition = response.data.weather[0].description;
   let wind = response.data.wind.speed;
   let realFeel = Math.round(response.data.main.feels_like);
   let humidity = response.data.main.humidity;
