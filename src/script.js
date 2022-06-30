@@ -1,8 +1,6 @@
 // Display current Date
 
 let today = new Date();
-let currentDate1 = document.querySelector("#weekDay");
-let currentDate2 = document.querySelector("#clock");
 let months = [
   "January",
   "February",
@@ -17,7 +15,6 @@ let months = [
   "November",
   "December",
 ];
-
 let weekDaysFull = [
   "Sunday",
   "Monday",
@@ -28,7 +25,6 @@ let weekDaysFull = [
   "Saturday",
 ];
 let weekDay = weekDaysFull[today.getDay()];
-currentDate1.innerHTML = `${weekDay}`;
 let currentMonth = months[today.getMonth()];
 let currentDay = today.getDate();
 let currentYear = today.getFullYear();
@@ -40,6 +36,9 @@ let currentMinutes = today.getMinutes();
 if (currentMinutes < 10) {
   currentMinutes = "0" + currentMinutes;
 }
+let currentDate1 = document.querySelector("#weekDay");
+let currentDate2 = document.querySelector("#clock");
+currentDate1.innerHTML = `${weekDay}`;
 currentDate2.innerHTML = `${currentMonth} ${currentDay} ${currentYear} ${currentHour}:${currentMinutes}`;
 
 // Forecast - Days of week
@@ -77,7 +76,7 @@ function showTempCity(response) {
   console.log(response.data);
   let temp = Math.round(response.data.main.temp);
   let city = response.data.name;
-  // let iconID = response.data.weather[0].icon;
+  let iconID = response.data.weather[0].icon;
   let high = Math.round(response.data.main.temp_max);
   let low = Math.round(response.data.main.temp_min);
   let condition = response.data.weather[0].description;
@@ -86,24 +85,21 @@ function showTempCity(response) {
   let humidity = response.data.main.humidity;
   let pressure = response.data.main.pressure;
 
-  let newCity = document.querySelector("#currentCityDisplay");
-  newCity.innerHTML = `${city}`;
-  let tMain = document.querySelector("#currentTemp");
-  tMain.innerHTML = `${temp}º`;
-  let highT = document.querySelector("#high");
-  highT.innerHTML = `${high}º`;
-  let lowT = document.querySelector("#low");
-  lowT.innerHTML = `${low}º`;
-  let conditionW = document.querySelector("#description");
-  conditionW.innerHTML = `${condition}`;
-  let windSpeed = document.querySelector("#wind");
-  windSpeed.innerHTML = `${wind} m/s`;
-  let realF = document.querySelector("#feel");
-  realF.innerHTML = `${realFeel}ºC`;
-  let humid = document.querySelector("#humidity");
-  humid.innerHTML = `${humidity} %`;
-  let press = document.querySelector("#pressure");
-  press.innerHTML = `${pressure} hPa`;
+  document.querySelector("#currentCityDisplay").innerHTML = `${city}`;
+  document.querySelector("#currentTemp").innerHTML = `${temp}º`;
+  document.querySelector("#high").innerHTML = `${high}º`;
+  document.querySelector("#low").innerHTML = `${low}º`;
+  document.querySelector("#description").innerHTML = `${condition}`;
+  document.querySelector("#wind").innerHTML = `${wind} m/s`;
+  document.querySelector("#feel").innerHTML = `${realFeel}ºC`;
+  document.querySelector("#humidity").innerHTML = `${humidity} %`;
+  document.querySelector("#pressure").innerHTML = `${pressure} hPa`;
+  let iconEl = document.querySelector("#iconNow");
+  iconEl.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconID}@2x.png`
+  );
+  iconEl.setAttribute("alt", condition);
 }
 
 //  Current location search

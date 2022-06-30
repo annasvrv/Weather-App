@@ -129,6 +129,11 @@ table {
   padding-right: 20px;
 }
 
+img#iconNow {
+  margin: 0 auto;
+  
+}
+
 .highLow {
   margin-top: 15px;
   font-size: 16px;
@@ -145,7 +150,7 @@ table {
 .condValue {
   padding-left: 10px;
 }
-.description {
+.description::first-letter {
   text-transform: capitalize;
 }
 
