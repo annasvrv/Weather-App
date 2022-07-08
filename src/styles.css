@@ -267,8 +267,9 @@ li button:hover {
   }
   .iconNow {
     width: 70px;
-    /* position: relative;
-    top: -5px; */
+  }
+  .highLow {
+    margin-top: 30px;
   }
 }
 
