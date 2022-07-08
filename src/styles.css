@@ -266,9 +266,9 @@ li button:hover {
     font-weight: 600;
   }
   .iconNow {
-    width: 40px;
-    position: relative;
-    top: -5px;
+    width: 60px;
+    /* position: relative;
+    top: -5px; */
   }
 }
 
