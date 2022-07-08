@@ -1,6 +1,5 @@
-
 function formatWeek(day) {
-  let date1 = new Date (day);
+  let date1 = new Date(day);
   let days = [
     "Sunday",
     "Monday",
@@ -65,116 +64,60 @@ function displayData(response) {
 
   tempElement.innerHTML = `${Math.round(currentTemp)}º`;
   cityElement.innerHTML = response.data.name;
-  highTemp.innerHTML = Math.round(currentHigh);
-  lowTemp.innerHTML = Math.round(currentLow);
+  highTemp.innerHTML = `${Math.round(currentHigh)}º`;
+  lowTemp.innerHTML = `${Math.round(currentLow)}º`;
   conditionElement.innerHTML = response.data.weather[0].description;
-  windElement.innerHTML = response.data.wind.speed;
-  feelElement.innerHTML = Math.round(currentFeel);
-  humidElement.innerHTML = response.data.main.humidity;
-  pressureElement.innerHTML = response.data.main.pressure;
-  weekdayElement.innerHTML = formatWeek(response.data.dt *1000);
-  dateElement.innerHTML = formatDay(response.data.dt *1000);
+  windElement.innerHTML = `${response.data.wind.speed} m/s`;
+  feelElement.innerHTML = `${Math.round(currentFeel)}ºC`;
+  humidElement.innerHTML = `${response.data.main.humidity}%`;
+  pressureElement.innerHTML = `${response.data.main.pressure} hPa`;
+  weekdayElement.innerHTML = formatWeek(response.data.dt * 1000);
+  dateElement.innerHTML = formatDay(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
 }
 
-function search(city) {
+function searchCity(city) {
   let apiKey = "74a1988810687be79d98c8fd17e5884a";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(displayData);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayData);
 }
 
-
-function displayCity (event) {
+function displayCity(event) {
   event.preventDefault();
-  let cityInputElement = document.querySelector("#searchCity-form").value;
-  search(cityInputElement)
+  let cityInputElement = document.querySelector("#citySearch-input").value;
+  searchCity(cityInputElement);
 }
 
+function myLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showMyPosition);
+}
 
+function showMyPosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "74a1988810687be79d98c8fd17e5884a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}
+&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayData);
+}
 
 let currentTemp = null;
 let currentHigh = null;
 let currentLow = null;
 let currentFeel = null;
 
-
-
 let form = document.querySelector("#searchCity-form");
 form.addEventListener("submit", displayCity);
 
-search("Los Angeles");
+let currentLocation = document.querySelector("#cityCurrent-location-button");
+currentLocation.addEventListener("click", myLocation);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Display current Date
-
-// let today = new Date();
-// let currentDate1 = document.querySelector("#weekDay");
-// let currentDate2 = document.querySelector("#clock");
-// let months = [
-//   "January",
-//   "February",
-//   "March",
-//   "April",
-//   "May",
-//   "June",
-//   "July",
-//   "August",
-//   "September",
-//   "October",
-//   "November",
-//   "December",
-// ];
-
-// let weekDaysFull = [
-//   "Sunday",
-//   "Monday",
-//   "Tuesday",
-//   "Wednesday",
-//   "Thursday",
-//   "Friday",
-//   "Saturday",
-// ];
-// let weekDay = weekDaysFull[today.getDay()];
-// currentDate1.innerHTML = `${weekDay}`;
-// let currentMonth = months[today.getMonth()];
-// let currentDay = today.getDate();
-// let currentYear = today.getFullYear();
-// let currentHour = today.getHours();
-// if (currentHour < 10) {
-//   currentHour = "0" + currentHour;
-// }
-// let currentMinutes = today.getMinutes();
-// if (currentMinutes < 10) {
-//   currentMinutes = "0" + currentMinutes;
-// }
-// currentDate2.innerHTML = `${currentMonth} ${currentDay} ${currentYear} ${currentHour}:${currentMinutes}`;
+searchCity("Los Angeles");
 
 // // Forecast - Days of week
 
@@ -188,74 +131,6 @@ search("Los Angeles");
 //   }
 //   let week = document.getElementById("weekForecast").rows[0].cells;
 //   week[i].innerHTML = `${day}`;
-// }
-
-// // Display current city
-
-// function defaultCity(city) {
-//   let apiKey = "74a1988810687be79d98c8fd17e5884a";
-//   let units = "metric";
-//   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}`;
-//   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTempCity);
-// }
-
-// function displayCity(event) {
-//   event.preventDefault();
-//   let city = document.querySelector("#citySearch-input").value;
-//   defaultCity(city);
-// }
-
-// //  Display City and Weather Conditions
-
-// function showTempCity(response) {
-//   console.log(response.data);
-//   let temp = Math.round(response.data.main.temp);
-//   let city = response.data.name;
-//   // let iconID = response.data.weather[0].icon;
-//   let high = Math.round(response.data.main.temp_max);
-//   let low = Math.round(response.data.main.temp_min);
-//   let condition = response.data.weather[0].description;
-//   let wind = response.data.wind.speed;
-//   let realFeel = Math.round(response.data.main.feels_like);
-//   let humidity = response.data.main.humidity;
-//   let pressure = response.data.main.pressure;
-
-//   let newCity = document.querySelector("#currentCityDisplay");
-//   newCity.innerHTML = `${city}`;
-//   let tMain = document.querySelector("#currentTemp");
-//   tMain.innerHTML = `${temp}º`;
-//   let highT = document.querySelector("#high");
-//   highT.innerHTML = `${high}º`;
-//   let lowT = document.querySelector("#low");
-//   lowT.innerHTML = `${low}º`;
-//   let conditionW = document.querySelector("#description");
-//   conditionW.innerHTML = `${condition}`;
-//   let windSpeed = document.querySelector("#wind");
-//   windSpeed.innerHTML = `${wind} m/s`;
-//   let realF = document.querySelector("#feel");
-//   realF.innerHTML = `${realFeel}ºC`;
-//   let humid = document.querySelector("#humidity");
-//   humid.innerHTML = `${humidity} %`;
-//   let press = document.querySelector("#pressure");
-//   press.innerHTML = `${pressure} hPa`;
-// }
-
-// //  Current location search
-
-// function myLocation(event) {
-//   event.preventDefault();
-//   navigator.geolocation.getCurrentPosition(showMyPosition);
-// }
-
-// function showMyPosition(position) {
-//   let lat = position.coords.latitude;
-//   let lon = position.coords.longitude;
-//   let apiKey = "74a1988810687be79d98c8fd17e5884a";
-//   let units = "metric";
-//   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}
-// &lon=${lon}&units=${units}&appid=${apiKey}`;
-
-//   axios.get(apiUrl).then(showTempCity);
 // }
 
 // // Converting C to F and F to C
@@ -284,17 +159,3 @@ search("Los Angeles");
 // buttonsUnitF.addEventListener("click", changeUnitF);
 
 // // Forecast temperature
-
-// // user city search
-// let cityFormSearch = document.querySelector("#searchCity-form");
-// cityFormSearch.addEventListener("submit", displayCity);
-
-// // current location button
-// let currentLocationButton = document.querySelector(
-//   "#cityCurrent-location-button"
-// );
-// currentLocationButton.addEventListener("click", myLocation);
-
-// // Default city display
-
-// defaultCity("Los Angeles");
