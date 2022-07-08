@@ -253,3 +253,9 @@ li button:hover {
     padding-right: 5px;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .conditions {
+    font-size: 14px;
+  }
+}
