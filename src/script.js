@@ -88,12 +88,16 @@ function searchCity(city) {
 
 function displayCity(event) {
   event.preventDefault();
+  buttonUnitF.classList.remove("active");
+  buttonUnitC.classList.add("active");
   let cityInputElement = document.querySelector("#citySearch-input").value;
   searchCity(cityInputElement);
 }
 
 function myLocation(event) {
   event.preventDefault();
+  buttonUnitF.classList.remove("active");
+  buttonUnitC.classList.add("active");
   navigator.geolocation.getCurrentPosition(showMyPosition);
 }
 
@@ -106,10 +110,47 @@ function showMyPosition(position) {
   axios.get(apiUrl).then(displayData);
 }
 
+function displayUnitFtemp(event) {
+  event.preventDefault();
+  buttonUnitC.classList.remove("active");
+  buttonUnitF.classList.add("active");
+  let newTempF = Math.round((currentTemp * 9) / 5 + 32);
+  let temp = document.querySelector("#currentTemp");
+  let high = document.querySelector("#high");
+  let low = document.querySelector("#low");
+  let feel = document.querySelector("#feel");
+
+  temp.innerHTML = `${newTempF}º`;
+  high.innerHTML = `${Math.round((currentHigh * 9) / 5 + 32)}º`;
+  low.innerHTML = `${Math.round((currentLow * 9) / 5 + 32)}º`;
+  feel.innerHTML = `${Math.round((currentFeel * 9) / 5 + 32)}ºF`;
+}
+
+function displayUnitCtemp(event) {
+  event.preventDefault();
+  buttonUnitF.classList.remove("active");
+  buttonUnitC.classList.add("active");
+  let temp = document.querySelector("#currentTemp");
+  let high = document.querySelector("#high");
+  let low = document.querySelector("#low");
+  let feel = document.querySelector("#feel");
+
+  temp.innerHTML = `${Math.round(currentTemp)}º`;
+  high.innerHTML = `${Math.round(currentHigh)}º`;
+  low.innerHTML = `${Math.round(currentLow)}º`;
+  feel.innerHTML = `${Math.round(currentFeel)}ºC`;
+}
+
 let currentTemp = null;
 let currentHigh = null;
 let currentLow = null;
 let currentFeel = null;
+
+let buttonUnitF = document.querySelector("#fahrenheit-btn");
+buttonUnitF.addEventListener("click", displayUnitFtemp);
+
+let buttonUnitC = document.querySelector("#celsius-btn");
+buttonUnitC.addEventListener("click", displayUnitCtemp);
 
 let form = document.querySelector("#searchCity-form");
 form.addEventListener("submit", displayCity);

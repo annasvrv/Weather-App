@@ -121,7 +121,6 @@ table {
   font-weight: 600;
 }
 .iconNow {
-  
   position: relative;
   top: -5px;
 }
@@ -262,4 +261,8 @@ li button:hover {
   .conditions {
     font-size: 12px;
   }
+}
+
+.active {
+  background-color: transparent;
 }
