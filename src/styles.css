@@ -261,6 +261,15 @@ li button:hover {
   .conditions {
     font-size: 12px;
   }
+  .tempNow {
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .iconNow {
+    width: 40px;
+    position: relative;
+    top: -5px;
+  }
 }
 
 .active {
