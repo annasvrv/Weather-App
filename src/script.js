@@ -69,6 +69,8 @@ function displayForecast(response) {
       weekTemp[i].innerHTML = `${Math.round(forecastDay.temp.day)}º`;
     }
   });
+
+  forecastTemp = forecast;
 }
 
 function getForecast(coordinates) {
@@ -155,11 +157,17 @@ function displayUnitFtemp(event) {
   let high = document.querySelector("#high");
   let low = document.querySelector("#low");
   let feel = document.querySelector("#feel");
+  let cells = document.getElementById("weekForecast").rows[2].cells;
 
   temp.innerHTML = `${newTempF}º`;
   high.innerHTML = `${Math.round((currentHigh * 9) / 5 + 32)}º`;
   low.innerHTML = `${Math.round((currentLow * 9) / 5 + 32)}º`;
   feel.innerHTML = `${Math.round((currentFeel * 9) / 5 + 32)}ºF`;
+  for (i = 0; i < 7; i++) {
+    cells[i].innerHTML = `${Math.round(
+      (forecastTemp[i].temp.day * 9) / 5 + 32
+    )}º`;
+  }
 }
 
 function displayUnitCtemp(event) {
@@ -170,11 +178,15 @@ function displayUnitCtemp(event) {
   let high = document.querySelector("#high");
   let low = document.querySelector("#low");
   let feel = document.querySelector("#feel");
+  let cells = document.getElementById("weekForecast").rows[2].cells;
 
   temp.innerHTML = `${Math.round(currentTemp)}º`;
   high.innerHTML = `${Math.round(currentHigh)}º`;
   low.innerHTML = `${Math.round(currentLow)}º`;
   feel.innerHTML = `${Math.round(currentFeel)}ºC`;
+  for (i = 0; i < 7; i++) {
+    cells[i].innerHTML = `${Math.round(forecastTemp[i].temp.day)}º`;
+  }
 }
 
 let unit = "metric";
@@ -183,6 +195,7 @@ let currentTemp = null;
 let currentHigh = null;
 let currentLow = null;
 let currentFeel = null;
+let forecastTemp = [];
 
 let buttonUnitF = document.querySelector("#fahrenheit-btn");
 buttonUnitF.addEventListener("click", displayUnitFtemp);
